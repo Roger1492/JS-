@@ -1,2 +1,15 @@
-# JS-
-这是用来练手的Javascript小项目，
+# JS-Learn-Demo
+
+### 这是用来练手的Javascript小项目，每个项目都很小，只有最简单的最基本的功能
+
+| 项目名字 | 英文 | 完成度 | 
+| - | :-: | -: | 
+| 富文本编辑器 | Rich Text Editor| 10 | 
+| 闹钟 | Alarm Clock | 0 | 
+| 日程表 | Todolist | 0 |
+| 二维码生成器 | Todolist | 0 |
+| 图片Base64 | Todolist | 0 |
+| 天气APP | Weather APP | 0 |
+| 日历 | Calendar |0 |
+| 时间戳转换 | TimeStamp translation | 90 |
+| 音乐播放器 | Music Player | 0 |
