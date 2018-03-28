@@ -1,0 +1,44 @@
+html,body{
+    font-family: Arial, "Microsoft YaHei";
+}
+#show{
+    margin-top: 10px;
+    width: 900px;
+    height: 600px;
+    outline: 1px solid gray;
+}
+#locate-date{
+    height: 40px;
+    line-height: 40px;
+    text-indent: 20px;
+    background: #999999;
+}
+#now-weather{
+    width: 100%;
+    height: 360px;
+    background: #dddddd;
+    display: grid;
+    grid-template-columns: 2fr repeat(4, 1fr);
+}
+#now-temp{
+    width: 100%;
+    height: 200px;
+}
+.day > span{
+    display: inline-block;
+}
+.day{
+    cursor: pointer;
+    text-align: center;
+    transition: background-color .2s linear;
+}
+.day:hover{
+    background: #c2c2c2;
+}
+h2{
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.day-type{
+    margin-bottom: 5px;
+}

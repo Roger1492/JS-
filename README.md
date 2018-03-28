@@ -5,7 +5,7 @@
 | 项目名字 | 英文 | 完成度 | 
 | - | :-: | -: | 
 | 富文本编辑器 | Rich Text Editor| 10 | 
-| 闹钟 | Alarm Clock | 0 | 
+| 闹钟 | Alarm Clock | 50 | 
 | 日程表 | Todolist | 0 |
 | 二维码生成器 | Todolist | 0 |
 | 图片Base64 | Todolist | 0 |
