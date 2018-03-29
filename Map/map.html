@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>高德地图</title>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #btn {
+            position: absolute;
+            z-index: 999;
+        }
+
+        #container {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="btn">
+        <button id="standar-map">标准地图</button>
+        <button id="3d-map">3D地图</button>
+        <button id="indoor-map">3D室内图</button>
+    </div>
+    <div id="container"></div>
+
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.4&key=62bfc16c17f9df15a085391827084d52"></script>
+    <script>
+        let mapStandar = document.getElementById("standar-map");
+        let map3D = document.getElementById("3d-map");
+        let mapIndoor = document.getElementById("indoor-map");
+
+        mapStandar.addEventListener("click", function () {
+            if (!map) {
+                var map = new AMap.Map("container", {
+                    resizeEnable: true,
+                    zoom: 17,
+                    center: [116.333926, 39.997245]
+                })
+            }
+        }, false)
+
+        map3D.addEventListener("click", function () {
+            map = null;
+            if (!map) {
+                var map = new AMap.Map('container', {
+                    pitch: 75,
+                    viewMode: '3D',
+                    zoom: 17,
+                    expandZoomRange: true,
+                    zooms: [3, 20],
+                    center: [116.333926, 39.997245]
+                });
+            }
+
+        }, false);
+
+        mapIndoor.addEventListener("click", function () {
+            map = null;
+            if (!map) {
+                var map = new AMap.Map('container', {
+                    resizeEnable: true,
+                    center: [116.518542, 39.924677],
+                    zoom: 18,
+                    pitch: 50,
+                    viewMode: '3D'
+                });
+                map.on('indoor_create', function () {
+                    map.indoorMap.showIndoorMap('B000A856LJ', 5);
+                })
+            }
+        }, false);
+    </script>
+</body>
+
+</html>

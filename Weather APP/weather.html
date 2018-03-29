@@ -9,13 +9,12 @@
     <link rel="stylesheet" href="weather.css">
 </head>
 <body>
-    <input type="text" value="Shanghai" id="city" placeholder="City">
-    <input type="text" value="China" id="locate" placeholder="Country">
+    <input type="text" value="Shanghai" id="city" placeholder="输入城市名（必填）">
     <input type="button" id="btn" value="Get Weather">
     <div id="show">
         <section id="locate-date">
-            <span id="now-locate"></span>
             <span id="now-date"></span>
+            <span id="now-locate"></span>
         </section>
         <section id="now-weather">
             <div class="day day1">
@@ -54,7 +53,9 @@
                 <span class="day-temp"></span><br>
             </div>
         </section>
-        <section id="now-temp"></section>
+        <canvas id="now-temp" width="900" height="360">
+            // TODO 添加温度折线图
+        </canvas>
     </div>
     <script src="weather.js"></script>
 </body>

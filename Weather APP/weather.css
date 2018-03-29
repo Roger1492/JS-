@@ -6,24 +6,26 @@ html,body{
     width: 900px;
     height: 600px;
     outline: 1px solid gray;
+    background-image: -webkit-linear-gradient(top, #0F69BC, #6DAADE);
 }
 #locate-date{
     height: 40px;
     line-height: 40px;
     text-indent: 20px;
-    background: #999999;
+}
+#now-locate{
+    font-weight: 800;
 }
 #now-weather{
     width: 100%;
-    height: 360px;
-    background: #dddddd;
+    height: 200px;
     display: grid;
     grid-template-columns: 2fr repeat(4, 1fr);
 }
-#now-temp{
-    width: 100%;
-    height: 200px;
-}
+/* #now-temp{
+    width: 900px;
+    height: 360px;
+} */
 .day > span{
     display: inline-block;
 }
@@ -33,7 +35,7 @@ html,body{
     transition: background-color .2s linear;
 }
 .day:hover{
-    background: #c2c2c2;
+    background: #6DAADE;
 }
 h2{
     margin-top: 5px;
