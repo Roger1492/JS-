@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,27 @@
     <title>Todo List</title>
     <link rel="stylesheet" href="todo.css">
 </head>
+
 <body>
-    <div id="todo">
-        <button id="add">Add Todo</button>
-        <div class="list"><span class="close">X</span><input type="text"></div>
+    <header>
+        <div>
+            Todo List
+            <input type="text" id="add" placeholder="Add Todo List">
+        </div>
+    </header>
+    <div id="wrap">
+        <h2>正在进行
+            <span id="doing-num">0</span>
+        </h2>
+        <ol id="doing">
+        </ol>
+        <h2>已经完成
+            <span id="done-num">0</span>
+        </h2>
+        <ol id="done">
+        </ol>
     </div>
-    <script src="todo1.js"></script>
+    <script src="todo.js"></script>
 </body>
+
 </html>
