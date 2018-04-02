@@ -62,6 +62,20 @@ li > *{
     line-height: 30px;
     margin: 0;
 }
+#done{
+    color: gray;
+}
+#done li{
+    border-left: 5px solid gray;
+}
+#done li input{
+    color: rgb(194, 193, 193);
+    background: rgb(194, 193, 193);
+}
+#done li .close{
+    background: gray;
+    color: white;
+}
 input{
     margin: 0 12px;
 }
@@ -80,5 +94,7 @@ input{
     display: inline-block;
     cursor: pointer;
     border-radius: 50px;
-    background: lightgreen;
+    background: green;
+    color: white;
+    font-size: 24px;
 }
