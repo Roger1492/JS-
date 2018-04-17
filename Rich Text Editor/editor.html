@@ -7,45 +7,98 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>富文本编辑器</title>
     <link rel="stylesheet" href="editor.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
 </head>
 
 <body>
-    <div id="editor">
+    <div id="rich-editor">
         <div id="tools">
-            <input id="bold" type="button" value="B" data-fun="bold">
-            <input id="italic" type="button" value="I">
-            <input id="underline" type="button" value="U">
-            <input id="heading" type="button" value="H">
-            <input id="list-ol" type="button" value="list-ol">
-            <input id="list-ul" type="button" value="list-ul">
-            <input id="link" type="button" value="link">
-            <input id="image" type="button" value="image">
-            <input id="video" type="button" value="video">
-            <input id="align-center" type="button" value="align-center">
-            <input id="align-right" type="button" value="align-right">
-            <input id="align-left" type="button" value="align-left">
-            <input id="quote-left" type="button" value="quote-left">
-            <!-- <div id="bold"><i class="fa fa-bold"></i></div> -->
-            <!-- <i class="fa fa-italic"></i>
-            <i class="fa fa-underline"></i>
-            <i class="fa fa-heading"></i>
-            <i class="fa fa-list-ol"></i>
-            <i class="fa fa-list-ul"></i>
-            <i class="fa fa-link"></i>
-            <i class="fa fa-image"></i>
-            <i class="fa fa-video"></i>
-            <i class="fa fa-align-center"></i>
-            <i class="fa fa-align-right"></i>
-            <i class="fa fa-align-justify"></i>
-            <i class="fa fa-align-left"></i>
-            <i class="fa fa-quote-left"></i> -->
+            <div id="setFontStyle" class="btn-group" role="group" aria-label="Text">
+                <button id="bold" class="btn btn-primary"><i class="fa fa-bold"></i></button>
+                <button id="italic" class="btn btn-primary"><i class="fa fa-italic"></i></button>
+                <button id="underline" class="btn btn-primary"><i class="fa fa-underline"></i></button>
+                <button id="strikethrough" class="btn btn-primary"><i class="fa fa-strikethrough"></i></button>
+                <button id="undo" class="btn btn-primary"><i class="fa fa-undo"></i></button>
+                <button id="redo" class="btn btn-primary"><i class="fa fa-redo"></i></button>
+            </div>
+            <select id="formatBlock" class="textStyle custom-select mr-sm-2" name="head" style="width: 100px;">
+                <option value="h6">h6</option>
+                <option value="h5">h5</option>
+                <option value="h4">h4</option>
+                <option value="h3">h3</option>
+                <option value="h2">h2</option>
+                <option value="h1">h1</option>
+            </select>
+            <select id="fontSize" class="textStyle custom-select mr-sm-2" name="font-size" style="width: 100px;">
+                <option value="1">12px</option>
+                <option value="2">16px</option>
+                <option value="3">18px</option>
+                <option value="4">20px</option>
+                <option value="5">24px</option>
+                <option value="6">30px</option>
+                <option value="7">36px</option>
+            </select>
+            <div id="lists" class="btn-group" role="group" aria-label="list">
+                <button id="indent" class="btn btn-primary"><i class="fa fa-indent"></i></button>
+                <button id="outdent" class="btn btn-primary"><i class="fa fa-outdent"></i></button>
+                <button id="insertOrderedList" class="btn btn-primary"><i class="fa fa-list-ol"></i></button>
+                <button id="insertUnorderedList" class="btn btn-primary"><i class="fa fa-list-ul"></i></button>
+                <button id="subscript" class="btn btn-primary"><i class="fa fa-subscript"></i></button>
+                <button id="superscript" class="btn btn-primary"><i class="fa fa-superscript"></i></button>
+            </div>
+            <div id="" class="btn-group" role="group" aria-label="Media">
+                <button id="link" class="btn btn-primary"><i class="fa fa-link"></i></button>
+                <button id="unlink" class="btn btn-primary"><i class="fa fa-unlink"></i></button>
+                <button id="code" class="btn btn-primary"><i class="fa fa-code"></i></button>
+                <button id="insertImage" class="btn btn-primary"><i class="fa fa-image"></i></button>
+                <button id="audio" class="btn btn-primary"><i class="fa fa-audio-description"></i></button>
+                <button id="video" class="btn btn-primary"><i class="fa fa-video"></i></button>
+            </div>
+            <div id="quote" class="btn-group" role="group" aria-label="quote">   
+                <button id="quote-left" class="btn btn-primary"><i class="fa fa-quote-left"></i></button>
+                <button id="quote-right" class="btn btn-primary"><i class="fa fa-quote-right"></i></button>
+            </div>
+            <div id="setJustify" class="btn-group" role="group" aria-label="Align">
+                <button id="justifyLeft" class="btn btn-primary"><i class="fa fa-align-left"></i></button>
+                <button id="justifyCenter" class="btn btn-primary"><i class="fa fa-align-center"></i></button>
+                <button id="justifyRight" class="btn btn-primary"><i class="fa fa-align-right"></i></button>
+            </div>
+            <select id="fontName" class="textStyle custom-select mr-sm-2" name="font-family" style="width: 160px;">
+                <option value="Arial">Arial</option>
+                <option value="Microsoft Yahei">Microsoft Yahei</option>
+                <option value="Courier New">Courier New</option>
+                <option value="monospace">monospace</option>
+                <option value="sans-serif">sans-serif</option>
+                <option value="consolas">consolas</option>
+            </select>
+            <select id="backColor" class="textStyle custom-select mr-sm-2" name="back-color" style="width: 100px;">
+                <option value="black">black</option>
+                <option value="white">white</option>
+                <option value="gray">gray</option>
+                <option value="blue">blue</option>
+                <option value="green">green</option>
+                <option value="red">red</option>
+            </select>
+            <select id="foreColor" class="textStyle custom-select mr-sm-2" name="font-color" style="width: 100px;">
+                <option value="black">black</option>
+                <option value="white">white</option>
+                <option value="gray">gray</option>
+                <option value="blue">blue</option>
+                <option value="green">green</option>
+                <option value="red">red</option>
+            </select>
         </div>
-        <div id="content" contenteditable="true">
-            Lorem ipsum dolor sit amet.
-        </div>
+        <div id="content" contenteditable="true"></div>
     </div>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <script src="editor.js"></script>
 </body>
 

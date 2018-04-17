@@ -1,26 +1,27 @@
-#editor{
-    width: 800px;
-    height: 600px;
-    outline: 1px solid black;
+html,body{
+    font-size: 16px;
+}
+#rich-editor{
+    margin: 50px auto;
+    width: 1200px;
+    height: 700px;
+    outline: 1px solid rgb(160, 160, 160);
 }
 #tools{
-    width: 800px;
-    height: 50px;
-    background: lightgray;
-}
-#tools > i{
-    display: inline-block;
-    width: 25px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    cursor: pointer;
-}
-#tools > i:hover{
-    color: whitesmoke;
+    width: 1200px;
+    height: 80px;
+    background: #f0efef;
 }
 #content{
-    width: 800px;
-    height: 550px;
-    outline: 1px solid gray;
+    width: 1200px;
+    height: 620px;
+    outline: none;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+}
+#content a{
+    cursor: pointer;
+}
+#content img{
+    width: 80%;
 }
