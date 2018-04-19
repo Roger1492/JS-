@@ -23,6 +23,7 @@
     <div id="wrap">
         <input type="text" id="context" placeholder="输入要生成的内容">
         <input type="button" value="生成二维码" id="btn">
+        <input type="button" value="清除二维码" id="clear">
     </div>
     <div id="qrcode"></div>
 
@@ -31,6 +32,8 @@
     <script>
         let context = document.getElementById("context");
         let btn = document.getElementById("btn");
+        let clear = document.getElementById("clear");
+
         btn.addEventListener("click", function (e) {
             var qrcode = new QRCode(document.getElementById("qrcode"), {
                 text: context.value,
@@ -40,6 +43,10 @@
                 colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.H
             });
+        }, false);
+
+        clear.addEventListener("click", function(e){
+            location.reload();
         }, false);
     </script>
 </body>

@@ -1,5 +1,6 @@
 let number = document.getElementById("number");
 let btn = document.getElementById("btn");
+let clear = document.getElementById("clear");
 
 function getMultiplication(){
     let createTable = document.createElement("table");
@@ -19,7 +20,10 @@ function getMultiplication(){
 
 btn.addEventListener("click", function () {
     let t = document.getElementsByTagName("table")[0];
-    
     getMultiplication();
-    
+}, false);
+
+clear.addEventListener("click", function(e){
+    let table = document.getElementsByTagName("table")[0];
+    table.remove();
 }, false);

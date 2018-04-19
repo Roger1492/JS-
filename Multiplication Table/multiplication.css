@@ -12,14 +12,16 @@ div,span{
     margin: 0 5px;
     color: blue;
 }
-#btn{
+#btn,#clear{
     background: blue;
     color: white;
     cursor: pointer;
     padding: 2px 12px;
     border-radius: 4px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
-#btn:hover{
+#btn:hover,#clear:hover{
     color: whitesmoke;
 }
 i{

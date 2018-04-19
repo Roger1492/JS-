@@ -11,9 +11,9 @@
 | 5 | 乘法口诀表 | multiplication table | 100% |
 | 6 | 音乐播放器 | Music Player | 0 |
 | 7 | 二维码生成器 | Qrcode | 100% |
-| 8 | 富文本编辑器 | Rich Text Editor| 10% | 
+| 8 | 富文本编辑器 | Rich Text Editor| 60% | 
 | 9 | 表格生成器 | table Genarator | 100% |
 | 10 | 时间戳转换 | TimeStamp translation | 100% |
-| 11 | 待办事项列表 | Todolist | 100% |
+| 11 | 待办事项列表 | Todolist | 50% |
 | 12 | 天气APP | Weather APP | 50% |
 | 13 | 图片Base64 | Todolist | 0 |

@@ -17,14 +17,15 @@
     <div id="rich-editor">
         <div id="tools">
             <div id="setFontStyle" class="btn-group" role="group" aria-label="Text">
-                <button id="bold" class="btn btn-primary"><i class="fa fa-bold"></i></button>
-                <button id="italic" class="btn btn-primary"><i class="fa fa-italic"></i></button>
-                <button id="underline" class="btn btn-primary"><i class="fa fa-underline"></i></button>
-                <button id="strikethrough" class="btn btn-primary"><i class="fa fa-strikethrough"></i></button>
-                <button id="undo" class="btn btn-primary"><i class="fa fa-undo"></i></button>
-                <button id="redo" class="btn btn-primary"><i class="fa fa-redo"></i></button>
+                <button id="bold" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Bold"><i class="fa fa-bold"></i></button>
+                <button id="italic" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Italic"><i class="fa fa-italic"></i></button>
+                <button id="underline" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Underline"><i class="fa fa-underline"></i></button>
+                <button id="strikethrough" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Strikethrough"><i class="fa fa-strikethrough"></i></button>
+                <button id="undo" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Undo"><i class="fa fa-undo"></i></button>
+                <button id="redo" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Redo"><i class="fa fa-redo"></i></button>
+                <button id="removeFormat" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Remove Selected Format"><i class="fa fa-eraser"></i></button>
             </div>
-            <select id="formatBlock" class="textStyle custom-select mr-sm-2" name="head" style="width: 100px;">
+            <select id="formatBlock" class="textStyle custom-select mr-sm-2" data-toggle="tooltip" data-placement="bottom" title="Head" style="width: 100px;">
                 <option value="h6">h6</option>
                 <option value="h5">h5</option>
                 <option value="h4">h4</option>
@@ -32,7 +33,7 @@
                 <option value="h2">h2</option>
                 <option value="h1">h1</option>
             </select>
-            <select id="fontSize" class="textStyle custom-select mr-sm-2" name="font-size" style="width: 100px;">
+            <select id="fontSize" class="textStyle custom-select mr-sm-2"  data-toggle="tooltip" data-placement="bottom" title="Set Font Size" style="width: 100px;">
                 <option value="1">12px</option>
                 <option value="2">16px</option>
                 <option value="3">18px</option>
@@ -42,31 +43,29 @@
                 <option value="7">36px</option>
             </select>
             <div id="lists" class="btn-group" role="group" aria-label="list">
-                <button id="indent" class="btn btn-primary"><i class="fa fa-indent"></i></button>
-                <button id="outdent" class="btn btn-primary"><i class="fa fa-outdent"></i></button>
-                <button id="insertOrderedList" class="btn btn-primary"><i class="fa fa-list-ol"></i></button>
-                <button id="insertUnorderedList" class="btn btn-primary"><i class="fa fa-list-ul"></i></button>
-                <button id="subscript" class="btn btn-primary"><i class="fa fa-subscript"></i></button>
-                <button id="superscript" class="btn btn-primary"><i class="fa fa-superscript"></i></button>
+                <button id="indent" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Indent"><i class="fa fa-indent"></i></button>
+                <button id="outdent" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Outdent"><i class="fa fa-outdent"></i></button>
+                <button id="insertOrderedList" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Insert Ordered List"><i class="fa fa-list-ol"></i></button>
+                <button id="insertUnorderedList" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Insert Unordered List"><i class="fa fa-list-ul"></i></button>
+                <button id="insertHorizontalRule" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Insert Horizontal Rule"><i class="fa fa-sliders-h"></i></button>
+                <button id="subscript" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Subscript"><i class="fa fa-subscript"></i></button>
+                <button id="superscript" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Superscript"><i class="fa fa-superscript"></i></button>
             </div>
-            <div id="" class="btn-group" role="group" aria-label="Media">
-                <button id="link" class="btn btn-primary"><i class="fa fa-link"></i></button>
-                <button id="unlink" class="btn btn-primary"><i class="fa fa-unlink"></i></button>
-                <button id="code" class="btn btn-primary"><i class="fa fa-code"></i></button>
-                <button id="insertImage" class="btn btn-primary"><i class="fa fa-image"></i></button>
-                <button id="audio" class="btn btn-primary"><i class="fa fa-audio-description"></i></button>
-                <button id="video" class="btn btn-primary"><i class="fa fa-video"></i></button>
-            </div>
-            <div id="quote" class="btn-group" role="group" aria-label="quote">   
-                <button id="quote-left" class="btn btn-primary"><i class="fa fa-quote-left"></i></button>
-                <button id="quote-right" class="btn btn-primary"><i class="fa fa-quote-right"></i></button>
+            <div id="media" class="btn-group" role="group" aria-label="Media">
+                <button id="link" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Insert link"><i class="fa fa-link"></i></button>
+                <button id="unlink" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Unlink"><i class="fa fa-unlink"></i></button>
+                <button id="quote-left" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Quote"><i class="fa fa-quote-left"></i></button>
+                <button id="code" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Insert Code"><i class="fa fa-code"></i></button>
+                <button id="insertImage" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Insert Images"><i class="fa fa-image"></i></button>
+                <button id="audio" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Insert Audio"><i class="fa fa-audio-description"></i></button>
+                <button id="video" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Insert Video"><i class="fa fa-video"></i></button>
             </div>
             <div id="setJustify" class="btn-group" role="group" aria-label="Align">
-                <button id="justifyLeft" class="btn btn-primary"><i class="fa fa-align-left"></i></button>
-                <button id="justifyCenter" class="btn btn-primary"><i class="fa fa-align-center"></i></button>
-                <button id="justifyRight" class="btn btn-primary"><i class="fa fa-align-right"></i></button>
+                <button id="justifyLeft" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Justify Left"><i class="fa fa-align-left"></i></button>
+                <button id="justifyCenter" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Justify Center"><i class="fa fa-align-center"></i></button>
+                <button id="justifyRight" class="setStyle btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Justify Right"><i class="fa fa-align-right"></i></button>
             </div>
-            <select id="fontName" class="textStyle custom-select mr-sm-2" name="font-family" style="width: 160px;">
+            <select id="fontName" class="textStyle custom-select mr-sm-2" data-toggle="tooltip" data-placement="bottom" title="Set Font Name" style="width: 160px;">
                 <option value="Arial">Arial</option>
                 <option value="Microsoft Yahei">Microsoft Yahei</option>
                 <option value="Courier New">Courier New</option>
@@ -74,7 +73,7 @@
                 <option value="sans-serif">sans-serif</option>
                 <option value="consolas">consolas</option>
             </select>
-            <select id="backColor" class="textStyle custom-select mr-sm-2" name="back-color" style="width: 100px;">
+            <select id="backColor" class="textStyle custom-select mr-sm-2" data-toggle="tooltip" data-placement="bottom" title="Set Back Color" style="width: 100px;">
                 <option value="black">black</option>
                 <option value="white">white</option>
                 <option value="gray">gray</option>
@@ -82,7 +81,7 @@
                 <option value="green">green</option>
                 <option value="red">red</option>
             </select>
-            <select id="foreColor" class="textStyle custom-select mr-sm-2" name="font-color" style="width: 100px;">
+            <select id="foreColor" class="textStyle custom-select mr-sm-2" data-toggle="tooltip" data-placement="bottom" title="Set Font Color" style="width: 100px;">
                 <option value="black">black</option>
                 <option value="white">white</option>
                 <option value="gray">gray</option>
