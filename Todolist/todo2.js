@@ -6,28 +6,34 @@ let doingNum = document.getElementById("doing-num");
 let doneNum = document.getElementById("done-num");
 let check = document.getElementsByClassName("check");
 
-// 添加一条todo list
+
+function addTodo(e){
+    var createLi = document.createElement("li");
+    var createInput = document.createElement("input");
+    var createSpanContent = document.createElement("span");
+    var createSpanClose = document.createElement("span");
+    createInput.setAttribute("type", "checkbox");
+    createSpanContent.innerHTML = e.target.value;
+    createLi.appendChild(createInput);
+    createLi.appendChild(createSpanContent);
+    createLi.appendChild(createSpanClose);
+    doing.appendChild(createLi);
+}
+
+function doNum(e){
+    let doing_Num = doing.querySelectorAll("li");
+    let done_Num = doneNum.querySelectorAll("li");
+    doingNum.innerHTML = doing_Num.length;
+    doneNum.innerHTML = done_Num.length;
+}
+
+doing.addEventListener("click", function(e){
+    
+}, false);
+
 add.addEventListener("keypress", function(e){
     if(e.keyCode === 13){
-        let arr = [];
-        let addVal = e.target.value;
-        let obj = {"title":addVal,"done":"true"};
-        arrs = arr.push(obj);
-        // localStorage.todo = JSON.stringify(arr);
-        console.log(arrs);
-        // let createLi = document.createElement("li");
-        // let createInput = document.createElement("input");
-        // let createPa = document.createElement("span");
-        // let createClose = document.createElement("span");
-        // createInput.setAttribute("type","checkbox");
-        // createInput.setAttribute("class", "check");
-        // createPa.setAttribute("class", "pa");
-        // createClose.setAttribute("class", "close");
-        // createClose.innerText = "-";
-        // doing.appendChild(createLi);
-        // createLi.appendChild(createInput);
-        // createLi.appendChild(createPa);
-        // createLi.appendChild(createClose);
-        // e.target.value = null;
+        addTodo(e);
+        doNum(e);
     }
 }, false);
