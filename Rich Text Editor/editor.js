@@ -35,7 +35,11 @@ image.addEventListener("click", function(e){
 // quote.addEventListener("click", function(e){}, false);
 
 // TODO: 插入音频
-// audio.addEventListener("click", function(e){}, false);
+audio.addEventListener("click", function(e){
+    let content = document.getElementById("content");
+    let contentChild = document.getElementById("content").querySelectorAll("*");
+    console.log(contentChild.length);
+}, false);
 
 // TODO: 插入视频
 // video.addEventListener("click", function(e){}, false);
@@ -43,4 +47,4 @@ image.addEventListener("click", function(e){
 // 启用提示框
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
-  })
+  });
