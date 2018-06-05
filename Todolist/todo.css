@@ -54,14 +54,6 @@ li{
     border-radius: 2px 0 0 2px;
     border-left: 5px solid green;
 }
-li > *{
-    float: left;
-    margin: 0;
-    height: 30px;
-    width: 20px;
-    line-height: 30px;
-    margin: 0;
-}
 #done{
     color: gray;
 }
@@ -79,19 +71,26 @@ li > *{
 input{
     margin: 0 12px;
 }
-.pa{
+.checked{
+    width: 25px;
+    height: 25px;
+    margin-top: 3px;
+}
+.content{
     display: inline-block;
-    width: 521px;
+    width: 500px;
     cursor: pointer;
     overflow: hidden;
     text-indent: 5px;
 }
 .close{
+    display: inline-block;
+    margin-left: 500px;
+    transform: translate(65px,-30px);
     width: 30px;
     height: 30px;
     line-height: 30px;
     text-align: center;
-    display: inline-block;
     cursor: pointer;
     border-radius: 50px;
     background: green;
