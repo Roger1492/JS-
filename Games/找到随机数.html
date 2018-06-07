@@ -1,0 +1,101 @@
+<!-- 
+    随机生成一个数，我们输入猜测的结果和随机数对比。
+    如果大，给提示让输入更小的数。
+    如果小，给提示让输入更大的数。
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            font-family: "Microsoft Yahei";
+        }
+        #result{
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>随机数:<span id="rndNum">***</span></h2>
+    输入你猜测的数:<input type="text" placeholder="请输入1~100以内的数字"><br><br>
+    <div id="result"></div>
+
+    <pre><code>
+            // 源代码
+            window.onload = function () {
+                let rndNum = document.getElementById("rndNum");
+                let text = document.getElementsByTagName("input")[0];
+                let result = document.getElementById("result");
+                let index = 0;
+                let a = Math.floor(Math.random()*100);
+    
+                text.addEventListener("keypress", function(e){
+                    if(e.keyCode === 13){
+                        if(Number(this.value) > Number(a)){
+                            ++index;
+                            result.innerHTML = "猜测的结果比随机数大，请输入<span id='small'>小</span>一点的数字";
+                            document.getElementById("small").style.fontSize = "24px";
+                            document.getElementById("small").style.color = "red";
+                        } else if(Number(this.value) < Number(a)){
+                            ++index;
+                            result.innerHTML = "猜测的结果比随机数大，请输入<span id='big'>大</span>一点的数字";
+                            document.getElementById("big").style.fontSize = "24px";
+                            document.getElementById("big").style.color = "blue";
+                        } else {
+                            ++index;
+                            rndNum.innerHTML = a;
+                            result.innerHTML = "厉害，你只猜了 " + index + " 次就猜对了,答案就是: " + a;
+                            result.style.color = "green";
+                            result.style.fontSize = "30px";
+                        }
+                        text.value = null;
+                    }
+                }, false);
+            };
+    </code></pre>
+
+    <script>
+        window.onload = function () {
+            let rndNum = document.getElementById("rndNum");
+            let text = document.getElementsByTagName("input")[0];
+            let result = document.getElementById("result");
+            let index = 0;
+            let a = Math.floor(Math.random()*100);
+
+            text.addEventListener("keypress", function(e){
+                if(e.keyCode === 13){
+                    if(Number(this.value) > Number(a)){
+                        // console.log("猜测的结果比随机数大，请输入%c小一点的数字","color:red;font-size:24px;");
+                        ++index;
+                        result.innerHTML = "猜测的结果比随机数大，请输入<span id='small'>小</span>一点的数字";
+                        document.getElementById("small").style.fontSize = "24px";
+                        document.getElementById("small").style.color = "red";
+                    } else if(Number(this.value) < Number(a)){
+                        // console.log("猜测的结果比随机数小，请输入%c大一点的数字","color:blue;font-size:24px;");
+                        ++index;
+                        result.innerHTML = "猜测的结果比随机数大，请输入<span id='big'>大</span>一点的数字";
+                        document.getElementById("big").style.fontSize = "24px";
+                        document.getElementById("big").style.color = "blue";
+                    } else {
+                        ++index;
+                        rndNum.innerHTML = a;
+                        // console.log("%c厉害，猜对了,答案就是: " + a,"color:green;font-size: 30px;");
+                        result.innerHTML = "厉害，你只猜了 " + index + " 次就猜对了,答案就是: " + a;
+                        result.style.color = "green";
+                        result.style.fontSize = "30px";
+                    }
+                    text.value = null;
+                }
+            }, false);
+        };
+    </script>
+
+</body>
+
+</html>

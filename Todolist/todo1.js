@@ -1,3 +1,5 @@
+// version 0.01
+
 let add = document.getElementById("add");
 let close = document.getElementsByClassName("close");
 let doing = document.getElementById("doing");

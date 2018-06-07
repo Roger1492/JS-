@@ -1,7 +1,9 @@
-// version v1.0.0
+// version 1.1.0
+// todo2.js的两个问题(FIXME 1 和FIXME 2) 暂不修复
+// 添加功能：双击可以修改内容。
 
-// FIXME: 注意：这个todo list的显示顺序不一定是输入的顺序
-// FIXME: 输入的内容不能是相同的。
+// FIXME: 1 注意：这个todo list的显示顺序不一定是输入的顺序
+// FIXME: 2 输入的内容不能是相同的。
 
 let add = document.getElementById("add");
 let close = document.getElementsByClassName("close");
@@ -11,6 +13,7 @@ let doingNum = document.getElementById("doing-num");
 let doneNum = document.getElementById("done-num");
 let check = document.getElementsByClassName("check");
 let context = document.getElementsByClassName("content");
+let index = 100;
 
 // 获取完成和未完成的todo数量。
 function getDoingNum(e) {
@@ -125,6 +128,16 @@ window.onload = function () {
 
             getDoingNum();
             getDoneNum();
+
+            // 删除选定的todo list
+            for (let i = 0; i < close.length; i++) {
+                close[i].addEventListener("click", function (e) {
+                    localStorage.removeItem(this.previousSibling.innerHTML);
+                    this.parentElement.parentElement.removeChild(this.parentElement);       // FIXME: 3 这行代码有问题,新添加的todo，在不刷新页面时，直接删会有console.log()问题,是个warn，但不影响使用。
+                    getDoingNum();
+                    getDoneNum();
+                }, false);
+            }
         }
 
     }, false);
@@ -147,11 +160,11 @@ window.onload = function () {
                 if(ev.keyCode === 13){
 
                     // 如果是false，则value还设为false，如果是true，则value还设为true。
-                    // if(localStorage.getItem(e.target.innerHTML) === "false"){
-                    //     localStorage.setItem(e.target.innerHTML, "true");
-                    // } else {
-                    //     localStorage.setItem(e.target.innerHTML, "false");
-                    // }
+                    if(localStorage.getItem(e.target.innerHTML) === "false"){
+                        localStorage.setItem(e.target.innerHTML, "true");
+                    } else {
+                        localStorage.setItem(e.target.innerHTML, "false");
+                    }
                     console.log(context[i]);
 
                     e.target.setAttribute("contentEditable", "false");

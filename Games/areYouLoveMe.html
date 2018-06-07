@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            font-family: "Microsoft Yahei";
+            widows: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        div {
+            position: absolute;
+            width: 100px;
+            height: 60px;
+            border: 1px solid gray;
+            line-height: 60px;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        div:nth-of-type(1){
+            z-index: 10;
+        }
+        div:nth-of-type(2){
+            z-index: 100;
+        }
+        section{
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            line-height: 100vh;
+            font-size: 100px;
+            color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="yes">Yes</div>
+    <div id="no">No</div>
+    <section>Are You Love Me?</section>
+
+    <script>
+        window.onload = function (e) {
+
+            function panel(l){
+                let createDiv = document.createElement("span");
+                createDiv.style.position = "absolute";
+                createDiv.style.display = "inline-block";
+                createDiv.style.transform = "translate("+(window.innerWidth/2-200)+"px,"+(-window.innerHeight/2-100)+"px)";
+                createDiv.style.width = "400px";
+                createDiv.style.height = "200px";
+                createDiv.style.lineHeight = "200px";
+                createDiv.style.textAlign = "center";
+                createDiv.style.border = "1px solid black";
+                createDiv.style.color = "white";
+                createDiv.style.fontSize = "30px";
+                createDiv.style.background = "gray";
+                createDiv.style.zIndex = "999";
+                createDiv.innerHTML = l;
+                document.body.appendChild(createDiv);
+            }
+            
+            let yes = document.getElementById("yes");
+            let no = document.getElementById("no");
+            let span = document.getElementsByTagName("span")[0];
+            
+            let yesX = Math.floor(Math.random() * (window.innerWidth-80));
+            let yesY = Math.floor(Math.random() * (window.innerHeight-80));
+            let noX = Math.floor(Math.random() * (window.innerWidth-80));
+            let noY = Math.floor(Math.random() * (window.innerHeight-80));
+            
+            yes.style.transform = "translate(" + yesX + "px, " + yesY + "px)";
+            no.style.transform = "translate(" + noX + "px, " + noY + "px)";
+            
+            yes.addEventListener("click", function (e) {
+                panel("I love you, too.");
+            }, false);
+            yes.addEventListener("mouseleave", function(e){
+                document.getElementsByTagName("span")[0].parentElement.removeChild(document.getElementsByTagName("span")[0]);
+            }, false);
+            no.addEventListener("mouseenter", function (e) {
+                let newPosX = Math.floor(Math.random() * (window.innerWidth-80));
+                let newPosY = Math.floor(Math.random() * (window.innerHeight-80));
+                no.style.transform = "translate(" + newPosX + "px, " + newPosY + "px)";
+            }, false);
+
+        };
+    </script>
+</body>
+
+</html>
