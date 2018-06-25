@@ -14,6 +14,7 @@
 | 8 | 富文本编辑器 | Rich Text Editor| 60% | 
 | 9 | 表格生成器 | table Genarator | 100% |
 | 10 | 时间戳转换 | TimeStamp translation | 100% |
-| 11 | 待办事项列表 | Todolist | 50% |
+| 11 | 待办事项列表 | Todolist | 100% |
 | 12 | 天气APP | Weather APP | 50% |
 | 13 | 图片Base64 | Todolist | 0 |
+| 14 | 计算一元二次方程的解 quadratic equation of one unknown | 0% |
