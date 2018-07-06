@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算一元二次方程的解 quadratic equation of one unknown</title>
+    <style>
+        .fum{
+            position: relative;
+            width: 400px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 40px;
+            font-weight: 800;
+            border: 1px solid black;
+        }
+        .square{
+            position: relative;
+            transform: translate(-10px, -10px);
+            display: inline-block;
+            font-weight: normal;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>求解</button>
+    <div class="fum">
+        <span contenteditable="true" class="variable">a</span>x
+        <span class="square">2</span> +
+        <span contenteditable="true" class="variable">b</span>x +
+        <span contenteditable="true" class="variable">c</span> = 0
+    </div>
+    <h1>
+        <section class="r"></section>
+        <section>
+            <span>X1: </span>
+            <span class="result1"></span>
+        </section>
+        <section>
+            <span>X2: </span>
+            <span class="result2"></span>
+        </section>
+    </h1>
+    <script src="index.js"></script>
+</body>
+
+</html>
