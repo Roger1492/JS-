@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>下拉菜单</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft Yahei";
+        }
+        ul{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style-type: none;
+        }
+        #parent > li{
+            position: relative;
+            width: 100px;
+            height: 50px;
+            background: lightblue;
+            float: left;
+        }
+        #parent li a{
+            display: inline-block;
+            text-decoration: none;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        #parent li a:hover{
+            background: rgb(128, 198, 221);
+        }
+        #parent ul{
+            position: relative;
+            left: 40px;
+            transform-origin: 50% 0;
+            transform: scaleY(0);
+            transition: all .4s ease-out;
+        }
+        #parent ul li{
+            position: relative;
+            left: -40px;
+            height: 50px;
+            min-width: 100px;
+            text-align: center;
+            line-height: 50px;
+            background: lightgreen;
+            cursor: pointer;
+        }
+        #parent ul li:hover{
+            background: rgb(104, 228, 104);
+            color: white;
+        }
+        #parent > li:hover ul{
+            transform: scaleY(1);
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul id="parent">
+            <li>
+                <a href="javascript:void(0);">Home</a>
+                <ul>
+                    <li>first</li>
+                    <li>second</li>
+                    <li>third</li>
+                    <li>fourth</li>
+                    <li>fifth</li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">JavaScript</a>
+                <ul>
+                    <li>first</li>
+                    <li>seconds</li>
+                    <li>third</li>
+                    <li>fourth</li>
+                    <li>fifth</li>
+                    <li>sixth</li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">HTML</a>
+                <ul>
+                    <li>Java</li>
+                    <li>SQL</li>
+                    <li>Ruby</li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">CSS</a>
+                <ul>
+                    <li>Python</li>
+                    <li>Perl</li>
+                    <li>Erlang</li>
+                    <li>Typescript</li>
+                    <li>PHP</li>
+                    <li>C</li>
+                    <li>CPP</li>
+                </ul>
+
+            </li>
+            <li>
+                <a href="javascript:void(0);">Vue</a>
+                <ul>
+                    <li>Batch</li>
+                    <li>Shell</li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">React</a>
+                <ul>
+                    <li>Go</li>
+                    <li>Lua</li>
+                    <li>Julia</li>
+                    <li>Rust</li>
+                    <li>Swift</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

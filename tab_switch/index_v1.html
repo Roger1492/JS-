@@ -1,0 +1,112 @@
+<!-- 最简单的实现方式，直接切换 display 的 block 和 none属性。 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tab切换</title>
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+            font-size: 16px;
+            font-family: "Microsoft Yahei";
+        }
+        #container{
+            position: relative;
+            width: 600px;
+            height: 450px;
+        }
+        ul{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        section{
+            float: left;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+            background: lightgreen;
+            font-weight: 800;
+        }
+        section:hover{
+            background: rgb(110, 231, 110);
+            color: white;
+        }
+        ul li{
+            position: absolute;
+            top: 50px;
+            width: 600px;
+            height: 400px;
+            line-height: 400px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 800;
+        }
+        ul li:not(:first-child){
+            display: none;
+        }
+        ul li:nth-of-type(1){background: wheat;}
+        ul li:nth-of-type(2){background: lightblue;}
+        ul li:nth-of-type(3){background: lightcoral;}
+        ul li:nth-of-type(4){background: lightcyan;}
+        ul li:nth-of-type(5){background: lightsalmon;}
+        ul li:nth-of-type(6){background: lightseagreen;}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="sec">
+            <section class="tab tab1">Home</section>
+            <section class="tab tab2">JavaScript</section>
+            <section class="tab tab3">HTML</section>
+            <section class="tab tab4">CSS</section>
+            <section class="tab tab5">Vue</section>
+            <section class="tab tab6">React</section>
+        </div>
+        <ul>
+            <li data-name="Home">
+                this is the first {Home 1}
+            </li>
+            <li data-name="JavaScript">
+                this is the second {JavaScript 2}
+            </li>
+            <li data-name="HTML">
+                this is the third {HTML 3}
+            </li>
+            <li data-name="CSS">
+                this is the fouth {CSS 4}
+            </li>
+            <li data-name="Vue">
+                this is the fifth {Vue 5}
+            </li>
+            <li data-name="React">
+                this is the sixth {React 6}
+            </li>
+        </ul>
+    </div>
+    <script>
+        let tab = Array.from(document.getElementsByClassName("tab"));
+        let li = document.getElementsByTagName("li");
+
+        tab.forEach(function(element,index,array){
+            element.addEventListener("click", function(e){
+
+                // 先隐藏所有的 li 标签
+                for(let i = 0; i < li.length; i++){
+                    li[i].style.display = "none";
+                }
+
+                // 把当前点击的标签显示出来
+                let that = document.querySelector(`li[data-name="${this.textContent}"]`);   // 当前获取的标签
+                that.style.display = "block";
+            }, false);
+        });
+    </script>
+</body>
+</html>

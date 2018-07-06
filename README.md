@@ -18,4 +18,6 @@
 | 12 | 天气APP | Weather APP | 50% |
 | 13 | 图片Base64 | Todolist | 0 |
 | 14 | 计算一元二次方程的解 quadratic equation of one unknown | 0% |
-| 15 | tab switch tab切换| 0% |
+| 15 | tab switch tab切换| 100% |
+| 16 | Dropmenu 下拉菜单 | 50% |
+| 17 | Layout 布局 | 0% |

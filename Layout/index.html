@@ -1,0 +1,55 @@
+<!-- 多列布局 - 双飞翼布局
+即：三列布局，两边固定，中间自适应 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>layout</title>
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            display: grid;
+            grid-template-columns: 200px 1fr 300px;
+        }
+        section{
+            height: 100vh;
+        }
+        section:nth-of-type(1){background: lightblue;}
+        section:nth-of-type(2){background: lightgreen;}
+        section:nth-of-type(3){background: lightseagreen;}
+    </style>
+</head>
+<body>
+    <div>
+        <section></section>
+        <section></section>
+        <section></section>
+    </div>
+    <script>
+        window.onload = function(){
+            let left = document.getElementsByTagName("section")[0];
+            let middle = document.getElementsByTagName("section")[1];
+            let right = document.getElementsByTagName("section")[2];
+            
+            left.innerHTML = "Width: "+left.offsetWidth + "px<br>Height: "+left.offsetHeight + "px";
+            middle.innerHTML = "Width: "+middle.offsetWidth + "px<br>Height: "+middle.offsetHeight + "px";
+            right.innerHTML = "Width: "+right.offsetWidth + "px<br>Height: "+right.offsetHeight + "px";
+        };
+        window.onresize = function(){
+            let left = document.getElementsByTagName("section")[0];
+            let middle = document.getElementsByTagName("section")[1];
+            let right = document.getElementsByTagName("section")[2];
+            
+            left.innerHTML = "Width: "+left.offsetWidth + "px<br>Height: "+left.offsetHeight + "px";
+            middle.innerHTML = "Width: "+middle.offsetWidth + "px<br>Height: "+middle.offsetHeight + "px";
+            right.innerHTML = "Width: "+right.offsetWidth + "px<br>Height: "+right.offsetHeight + "px";
+        };
+    </script>
+</body>
+</html>

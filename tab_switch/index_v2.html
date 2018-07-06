@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tab 切换</title>
+    <title>Tab切换</title>
     <style>
         html,body{
             padding: 0;
@@ -15,6 +15,7 @@
             font-family: "Microsoft Yahei";
         }
         #container{
+            margin: 100px auto;
             position: relative;
             width: 600px;
             height: 450px;
@@ -38,6 +39,14 @@
             background: rgb(110, 231, 110);
             color: white;
         }
+        #slide{
+            position: relative;
+            top: -17px;
+            display: inline-block;
+            width: 100px;
+            height: 2px;
+            background: red;
+        }
         ul li{
             position: absolute;
             top: 50px;
@@ -47,16 +56,11 @@
             text-align: center;
             font-size: 30px;
             font-weight: 800;
+            background: lightseagreen;
         }
         ul li:not(:first-child){
             display: none;
         }
-        ul li:nth-of-type(1){background: wheat;}
-        ul li:nth-of-type(2){background: lightblue;}
-        ul li:nth-of-type(3){background: lightcoral;}
-        ul li:nth-of-type(4){background: lightcyan;}
-        ul li:nth-of-type(5){background: lightsalmon;}
-        ul li:nth-of-type(6){background: lightseagreen;}
     </style>
 </head>
 <body>
@@ -68,6 +72,7 @@
             <section class="tab tab4">CSS</section>
             <section class="tab tab5">Vue</section>
             <section class="tab tab6">React</section>
+            <span id="slide"></span>
         </div>
         <ul>
             <li data-name="Home">
@@ -93,10 +98,15 @@
     <script>
         let tab = Array.from(document.getElementsByClassName("tab"));
         let li = document.getElementsByTagName("li");
+        let slide = document.getElementById("slide");
 
-        tab.forEach(function(element,index,array){
-            element.addEventListener("click", function(e){
+        tab.forEach(function(element,index, array){
+            element.addEventListener("mouseenter", function(e){
 
+                // 鼠标滑过tab, 重置span标签的position属性
+                slide.style.left = e.target.offsetLeft + "px";
+
+                // 切换标签
                 // 先隐藏所有的 li 标签
                 for(let i = 0; i < li.length; i++){
                     li[i].style.display = "none";
@@ -105,8 +115,9 @@
                 // 把当前点击的标签显示出来
                 let that = document.querySelector(`li[data-name="${this.textContent}"]`);   // 当前获取的标签
                 that.style.display = "block";
+
             }, false);
-        });
+        })
     </script>
 </body>
 </html>
