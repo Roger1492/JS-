@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取地理经纬度</title>
+</head>
+<body>
+    <button id="btn">Button</button>
+    <div id="show"></div>
+
+    <script>
+        let btn = document.getElementById("btn");
+        let show = document.getElementById("show");
+
+        btn.addEventListener("click", function(e){
+
+            let options = {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge:0
+            };
+            
+            function success(pos){
+                let crd = pos.coords;
+                show.innerHTML = `Latitude: ${crd.latitude}<br>Longitude: ${crd.longitude}<br>Accuracy: ${crd.accuracy} Miters`;
+            }
+
+            function error(){
+                console.log("Error");
+            }
+
+            navigator.geolocation.getCurrentPosition(success, error, options);
+        }, false);
+    </script>
+</body>
+</html>

@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <title>Document</title>
     <style>
         #wrap {
-            width: 260px;
+            width: 660px;
             margin: 50px auto;
         }
 
@@ -16,14 +17,25 @@
             width: 256px;
             margin: 150px auto;
         }
+
+        input[type="text"] {
+            width: 300px;
+        }
+
+        input[type="button"] {
+            position: relative;
+            transform: translate(300px, -37px);
+            width: 127px;
+            float: left;
+        }
     </style>
 </head>
 
 <body>
     <div id="wrap">
-        <input type="text" id="context" placeholder="输入要生成的内容">
-        <input type="button" value="生成二维码" id="btn">
-        <input type="button" value="清除二维码" id="clear">
+        <input class="form-control" type="text" id="context" placeholder="输入要生成的内容">
+        <input class="btn btn-success" type="button" value="生成二维码" id="btn">
+        <input class="btn btn-warning" type="button" value="清除二维码" id="clear">
     </div>
     <div id="qrcode"></div>
 
@@ -33,8 +45,11 @@
         let context = document.getElementById("context");
         let btn = document.getElementById("btn");
         let clear = document.getElementById("clear");
+        let canvas = document.getElementById("qrcode");
 
         btn.addEventListener("click", function (e) {
+            clearCode();
+
             var qrcode = new QRCode(document.getElementById("qrcode"), {
                 text: context.value,
                 width: 256,
@@ -43,10 +58,19 @@
                 colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.H
             });
+
         }, false);
 
-        clear.addEventListener("click", function(e){
-            location.reload();
+        // 查找并删除Canvas元素
+        function clearCode() {
+            let ctx = Array.from(canvas.querySelectorAll("canvas, img"));
+            ctx.forEach((ele, index, array) => {
+                ele.parentElement.removeChild(ele);
+            });
+        }
+
+        clear.addEventListener("click", function (e) {
+            clearCode();
         }, false);
     </script>
 </body>

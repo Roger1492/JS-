@@ -16,8 +16,9 @@
 | 10 | 时间戳转换 | TimeStamp translation | 100% |
 | 11 | 待办事项列表 | Todolist | 100% |
 | 12 | 天气APP | Weather APP | 50% |
-| 13 | 图片Base64 | Todolist | 0 |
-| 14 | 计算一元二次方程的解 quadratic equation of one unknown | 0% |
-| 15 | tab switch tab切换| 100% |
-| 16 | Dropmenu 下拉菜单 | 50% |
-| 17 | Layout 布局 | 0% |
+| 13 | 图片Base64 | Base64 | 0% |
+| 14 | 计算一元二次方程的解 | quadratic equation of one unknown | 0% |
+| 15 | tab切换 | tab switch | 100% |
+| 16 | 下拉菜单 | Dropmenu | 50% |
+| 17 | 布局 | Layout | 100% |
+| 18 | 获取地理经纬度 | Geolocation | 100% |
