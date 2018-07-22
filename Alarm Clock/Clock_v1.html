@@ -9,14 +9,20 @@
     <style>
         .wrap {
             position: relative;
-            width: 400px;
-            height: 400px;
+            width: 800px;
+            height: 800px;
+            margin: 50px auto;
+        }
+
+        #canvas{
+            position: relative;
+            border: 1px solid gray;
         }
 
         .circle {
             position: relative;
-            width: 400px;
-            height: 400px;
+            width: 800px;
+            height: 800px;
             border-radius: 50%;
             border: 1px solid gray;
         }
@@ -24,65 +30,84 @@
         .second {
             position: absolute;
             top: 0px;
-            left: 200px;
+            left: 400px;
             transform-origin: 50% 100%;
             width: 1px;
-            height: 200px;
+            height: 400px;
             background: red;
         }
 
         .minute {
             position: absolute;
-            top: 40px;
-            left: 200px;
+            top: 80px;
+            left: 400px;
             transform-origin: 50% 100%;
             width: 1px;
-            height: 160px;
+            height: 320px;
             background: gray;
         }
 
         .hour {
             position: absolute;
-            top: 100px;
-            left: 200px;
+            top: 200px;
+            left: 400px;
             transform-origin: 50% 100%;
             width: 1px;
-            height: 100px;
+            height: 200px;
             background: black;
+        }
+        #time{
+            position: relative;
+            transform: translate(350px,-200px);
+            font-size: 30px;
         }
     </style>
 </head>
 
 <body>
     <div class="wrap">
+        <canvas id="canvas" width="800" height="800"></canvas>
         <div class="circle">
             <section class="line second"></section>
             <section class="line minute"></section>
             <section class="line hour"></section>
         </div>
+        <section id="time"></section>
     </div>
     <script>
         window.onload = function () {
 
             let lsecond = document.getElementsByClassName("second")[0];
             let lminute = document.getElementsByClassName("minute")[0];
-            var lhour = document.getElementsByClassName("hour")[0];
+            let lhour = document.getElementsByClassName("hour")[0];
+            let time = document.getElementById("time");
 
             setInterval(run, 1000);
 
             function run() {
                 let t = new Date();
                 let hour = t.getHours();
+                let hours = hour;
                 let minute = t.getMinutes();
                 let second = t.getSeconds();
+
+                function addZero(n){
+                    return n < 10 ? "0" + n : "" + n;
+                }
+
+                function ampm(hour){
+                    return hour > 12 ? "AM" : "PM";
+                }
 
                 if (hour > 12) {
                     hour = hour - 12;
                 }
 
+
                 lhour.style.transform = "rotate(" + 30 * hour + "deg)";         // 每小时转一次，12小时转12次。转一次是360/12 = 30°
                 lminute.style.transform = "rotate(" + 6 * minute + "deg)";      // 每分钟转一次，一小时转60次。转一次是306/60 = 6°
                 lsecond.style.transform = "rotate(" + 6 * second + "deg)";      // 每秒钟转一次，一分钟转60次。转一次是360/60 = 6°
+                time.innerHTML = addZero(hours)+":"+addZero(minute)+":"+addZero(second) + " " + ampm();
             }
             run();
 
