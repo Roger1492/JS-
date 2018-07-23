@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>开启摄像头</title>
+    <style>
+        #btn-group{
+            width: 98vw;
+            height: 100px;
+        }
+        button{
+            width: 200px;
+            height: 50px;
+            border: none;
+        }
+        #show{
+            position: relative;
+            border: 1px solid gray;
+            margin: 50px auto;
+            width: 1280px;
+            height: 720px;
+        }
+        #canvas{
+            position: relative;
+            top: -470px;
+            border: 1px solid gray;
+        }
+        #pic{
+            position: relative;
+            width: 500px;
+            height: 300px;
+            right: -1293px;
+            top: -400px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="btn-group">
+            <button id="btn">开启摄像头</button>
+            <button id="takePhoto">截图</button>
+            <button id="download">下载图片</button>
+    </div>
+    <video id="show" src=""></video>
+    <canvas id="canvas" height="300" width="500"></canvas>
+    <img id="pic" src="" alt="">
+
+    <script>
+        let btn = document.getElementById("btn");
+        let tp = document.getElementById("takePhoto");
+        let dl = document.getElementById("download");
+
+        // 点击按钮后开启摄像头
+        btn.addEventListener("click", function(e){
+
+            // 设置摄像头的是否读取音频和视频，以及视频的高和宽
+            let constraints = {
+                audio: false,
+                video: {
+                    width: 1280,
+                    height: 720
+                }
+            };
+
+            let camera = navigator.mediaDevices.getUserMedia(constraints);
+
+            camera.then(mediaSteam => {
+                let show = document.getElementById("show");
+                show.srcObject = mediaSteam;
+                show.onloadedmetadata = function(e){
+                    show.play();
+                };
+            }).catch(err => {
+                console.log(err.name + ":" + err.message);
+            });
+        }, false);
+
+        // 截图
+        tp.addEventListener("click", function(e){
+            let ctx = document.getElementById("canvas").getContext("2d");
+            ctx.drawImage(show,0,0,500,300);
+            originData = ctx.getImageData(0,0,500,300);
+        }, false);
+
+        // 下载图片
+        // 使用 cnavas 的 ToDataURL() 方法，把canvas转化为base64并且赋给img.src
+        dl.addEventListener("click", function(e){
+            let imgs = document.getElementsByTagName("img")[0];
+            imgs.src = canvas.toDataURL();
+            a.href = canvas.toDataURL();
+            a.setAttribute("download","handsome");
+        }, false);
+    </script>
+</body>
+</html>

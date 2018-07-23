@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>视频</title>
+    <style>
+        button{
+            width: 100px;
+        }
+        input{
+            width: 200px;
+        }
+        /* input{
+            -webkit-appearance: none;
+            width: 200px;
+            height: 10px;
+            border-radius: 10px;
+        }
+        input::-webkit-slider-runnable-track{
+            width: 200px;
+            border-radius: 5px;
+            box-shadow: inset 0 -5px 6px lightblue, inset 0 5px 6px #aed6e0;
+        }
+        input::-webkit-slider-thumb{
+            -webkit-appearance: none;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid rgba(29, 29, 29, 0.5);
+            box-shadow: 0 3px 3px #3b4547;
+        }
+        input:focus{
+            outline: none;
+        } */
+    </style>
+</head>
+<body>
+    <video controls autoplay loop>
+        <source src="F:\Videos\MV\Karliene - The Rains of Castamere.mp4">
+    </video>
+    <div id="controls">
+         <button id="play" class="fa fa-3x fa-play"></button>
+         <button id="pause" class="fa fa-3x fa-pause"></button>
+        <input id="volumn" type="range" value="0.5" min="0" max="1" step="0.1">
+    </div>
+
+    <script>
+        let video = document.getElementsByTagName("video")[0];
+        let controls = document.getElementById("controls");
+        let volumn = document.getElementById("volumn");
+
+        controls.addEventListener("click", function(e){
+            if(e.target.id === "play"){
+                video.play();
+            } else if(e.target.id === "pause"){
+                video.pause();
+            }
+        }, false);
+
+        volumn.addEventListener("change", function(e){
+            if(this.value === 0){
+                video.muted();
+            } else {
+                video.volume = this.value;
+            }
+        }, false);
+    </script>
+</body>
+</html>
