@@ -31,15 +31,33 @@ image.addEventListener("click", function(e){
     document.execCommand("insertImage", false, prompt());
 }, false);
 
+// image.addEventListener("click", function(e){
+//     let createDiv = document.createElement("div");
+//     let createInput = document.createElement("input");
+//     let createBtn = document.createElement("button");
+//     createBtn.innerText = "OK";
+//     createDiv.setAttribute("style","position:absolute;top:200px;left:400px;width:400px;height:200px;border:1px solid gray;");
+//     document.body.appendChild(createDiv);
+//     createDiv.appendChild(createInput);
+//     createDiv.appendChild(createBtn);
+
+//     createBtn.addEventListener("click", function(e){
+//         return document.execCommand("insertHTML", false, addImage());
+//     }, false);
+// }, false);
+
 // TODO: 插入引用
 // quote.addEventListener("click", function(e){}, false);
 
 // TODO: 插入音频
-audio.addEventListener("click", function(e){
-    let content = document.getElementById("content");
-    let contentChild = document.getElementById("content").querySelectorAll("*");
-    console.log(contentChild.length);
-}, false);
+// audio.addEventListener("click", function(e){
+//     document.execCommand("insertHTML", false, addAudio());
+// }, false);
+
+// function addAudio(){
+
+//     return "Hellose";
+// }
 
 // TODO: 插入视频
 // video.addEventListener("click", function(e){}, false);

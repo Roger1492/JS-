@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drag</title>
+    <style>
+        div{
+            width: 500px;
+            height: 255px;
+            border: 1px solid gray;
+            display: inline-block;
+        }
+        img{
+            margin: 10px;
+            width: 480px;
+            height: 235px;
+        }
+    </style>
+</head>
+<body>
+    <div id="drag1" ondrop="drop(event)" ondragover="dragover(event)">
+        <img id="drag" draggable="true" ondragstart="dragstart(event)" src="http://c.hiphotos.baidu.com/image/h%3D300/sign=12e94bd7a3c3793162688029dbc5b784/a1ec08fa513d269733f7818c59fbb2fb4316d83f.jpg" alt="">
+    </div>
+    <div id="drag2" ondrop="drop(event)" ondragover="dragover(event)"></div>
+
+    <script>
+        let drag1 = document.getElementById("drag1");
+        let drag2 = document.getElementById("drag2");
+        let drag = document.getElementById("drag");
+        
+        drag1.addEventListener("dragover", function(e){
+            e.preventDefault();
+        }, false);
+        drag2.addEventListener("dragover", function(e){
+            e.preventDefault();
+        }, false);
+
+        drag.addEventListener("dragstart", function(e){
+            e.dataTransfer.setData("Text", e.target.id);
+        }, false);
+
+        drag1.addEventListener("drop", function(e){
+            e.preventDefault();
+            let data = e.dataTransfer.getData("Text");
+            e.target.appendChild(document.getElementById(data));
+        }, false);
+        drag2.addEventListener("drop", function(e){
+            e.preventDefault();
+            let data = e.dataTransfer.getData("Text");
+            e.target.appendChild(document.getElementById(data));
+        }, false);
+
+        // function dragover(e){
+        //     e.preventDefault();
+        // }
+
+        // function dragstart(e){
+        //     e.dataTransfer.setData("Text", e.target.id);
+        // }
+
+        // function drop(e){
+        //     e.preventDefault();
+        //     let data = e.dataTransfer.getData("Text");
+        //     e.target.appendChild(document.getElementById(data));
+        // }
+    </script>
+</body>
+</html>
