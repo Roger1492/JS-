@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新华字典、成语、歇后语</title>
+    <style>
+        input{
+            position: relative;
+            transform: translate(0, -2px);
+            width: 300px;
+            height: 35px;
+            outline: none;
+            font-size: 24px;
+        }
+        button{
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 26px;
+            border: none;
+            background: lightblue;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: all .2s;
+        }
+        button:hover{
+            border-radius: 5px;
+            color: gray;
+        }
+        #show{
+            width: 98vw;
+            min-height: 40vh;
+            border: 1px solid rgb(201, 197, 197);
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="btns">
+        <input type="text" name="text" id="text">
+        <button id="idiom">成语</button>
+        <button id="word">汉字</button>
+        <button id="xiehouyu">歇后语</button>
+    </div>
+    <div id="show"></div>
+
+    <script>
+        let text = document.getElementById("text");
+        let btns = document.querySelectorAll("button");
+        let show = document.getElementById("show");
+
+        let idiom = document.getElementById("idiom");
+        let word = document.getElementById("word");
+        let xiehouyu = document.getElementById("xiehouyu");
+
+        // 成语
+        idiom.addEventListener("click", function () {
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if(xhr.status == 200 && xhr.readyState == 4){
+                    let jp = JSON.parse(xhr.responseText)[0]
+                    show.innerHTML = `<strong>成语：</strong>${jp.word} <br> 
+                                      <strong>拼音：</strong>${jp.pinyin} <br> 
+                                      <strong>简写：</strong>${jp.abbreviation} <br> 
+                                      <strong>出处：</strong>${jp.derivation} <br> 
+                                      <strong>例子：</strong>${jp.example} <br> 
+                                      <storng>解释：</strong>${jp.explanation}`;
+                }
+            };
+            xhr.open("GET", "https://www.pwxcoo.com/dictionary?type=idiom&word=" + text.value, true);
+            xhr.send();
+        }, false);
+
+        // 汉字
+        word.addEventListener("click", function(){
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if(xhr.status == 200 && xhr.readyState == 4){
+                    let jp = JSON.parse(xhr.responseText)[0];
+                    show.innerHTML = `<strong>汉字：</strong>${jp.word} <br>
+                                      <strong>旧写法：</strong>${jp.oldword} <br>
+                                      <strong>笔画数：</strong>${jp.strokes} <br>
+                                      <strong>拼音：</strong>${jp.pinyin} <br>
+                                      <strong>部首：</strong>${jp.radicals} <br>
+                                      <strong>解释：</strong>${jp.explanation} <br>
+                                      <strong>更多详情：</strong>${jp.more}`;
+                }
+            };
+            xhr.open("GET", "https://www.pwxcoo.com/dictionary?type=word&word=" + text.value, true);
+            xhr.send();
+        },false);
+        
+        // 歇后语
+        xiehouyu.addEventListener("click", function(){
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if(xhr.status == 200 && xhr.readyState == 4){
+                    let jp = JSON.parse(xhr.responseText);
+                    show.innerHTML = `<strong>歇后语：</strong>${jp[0].riddle} <br>
+                                      <strong>解释：</strong>${jp[0].answer} <br> <br>`;
+                    for(let i = 1; i < jp.length; i++){
+                        show.innerHTML += `<strong>歇后语：</strong>${jp[i].riddle} <br>
+                                           <strong>解释：</strong>${jp[i].answer} <br> <br>`;
+                    }
+                }
+            };
+            xhr.open("GET", "https://www.pwxcoo.com/dictionary?type=xiehouyu&riddle=" + text.value, true);
+            xhr.send();
+        }, false);
+
+    </script>
+</body>
+</html>
